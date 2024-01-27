@@ -1,4 +1,4 @@
-# TELCO CUSTOMER CHURN PEDICTION
+# TELCO CUSTOMER CHURN PREDICTION
 This repository contains code for predicting customer churn for a fictional telecom company named Telco. The dataset includes information about customers' telecommunication services, such as home phone and internet services, and aims to identify which customers are likely to churn, stay, or sign up for services.
 
 ## Dataset Overview
