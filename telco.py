@@ -74,8 +74,6 @@ def grab_col_names(dataframe, car_th = 20, cat_th = 10): #Detecting variable typ
 
 cat_cols, num_cols, cat_but_car = grab_col_names(df)
 
-
-
 def cat_summary(dataframe, col_name, plot=False): #Categorical variable analysis
     print(pd.DataFrame({col_name: dataframe[col_name].value_counts(),
                         "Ratio": 100 * dataframe[col_name].value_counts() / len(dataframe)}))
@@ -93,7 +91,6 @@ def target_summary_with_cat(dataframe, target, categorical_col): #Analysis of th
                         "Ratio": 100 * dataframe[categorical_col].value_counts() / len(dataframe)}))
 for col in cat_cols:
     target_summary_with_cat(df,"Churn", col)
-
 
 def num_summary(dataframe, numeric_cols, plot = False): #Numeric variable analysis
     quantiles = [0.05, 0.10, 0.20, 0.30, 0.50, 0.70, 0.80, 0.90, 0.95]
@@ -153,7 +150,6 @@ def missing_vs_target(dataframe, target, na_columns): # A function to examine th
 missing_vs_target(df,"TotalCharges", na_cols)
 
 df["TotalCharges"].fillna(df["TotalCharges"].median(), inplace=True) # Filling missing values with the median.
-
 
 # +++++++++++++++++++ OUTLIER ANALYSIS +++++++++++++++++++++++
 
@@ -251,14 +247,13 @@ df = one_hot_encoder(df, cat_cols, drop_first=True)
 for col in df.columns:
     if df[col].dtype == ('bool'):
         df[col] = df[col].astype("int64")
-df.head()
-df.columns
 
 ss = StandardScaler() #Standardizing numerical columns using StandardScaler
 df[num_cols] = ss.fit_transform(df[num_cols])
 df.head()
 df.columns
 df.isnull().sum()
+
 #+++++++++++++++++++++++++ MODELING +++++++++++++++++++++++++++
 
 y = df["Churn"] #target variable
@@ -354,6 +349,7 @@ cv_results['test_f1'].mean() #0.58
 cv_results['test_roc_auc'].mean() #0.84
 
 #+++++++++++++++++++++ FEATURE IMPORTANCE +++++++++++++++++++++++++
+
 def plot_importance(model, features, num=len(X), save=False):
     feature_imp = pd.DataFrame({'Value': model.feature_importances_, 'Feature': features.columns})
     plt.figure(figsize=(10, 10))
