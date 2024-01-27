@@ -25,7 +25,7 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 pd.set_option('display.width', 500)
 
-df = pd.read_csv(r"C:\Users\Asus\OneDrive\Masaüstü\Telco-Customer-Churn.csv") # Data is read from the specified file path.
+df = pd.read_csv(r"C:\Users\Telco-Customer-Churn.csv") # Data is read from the specified file path.
 
 df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors='coerce') # The 'TotalCharges' column is converted to numerical values.
 
