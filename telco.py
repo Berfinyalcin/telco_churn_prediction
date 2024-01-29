@@ -275,6 +275,7 @@ for name, model in models:
     print(f"Auc: {round(cv_results['test_roc_auc'].mean(), 2)}")
     print(f"F1: {round(cv_results['test_f1'].mean(), 2)}")
 
+# Let's perform hyperparameter optimization with all the models we have built.
 #+++++++++++++++ Random Forest ++++++++++++++++++
 
 rf_model = RandomForestClassifier(random_state=17)
